@@ -2668,8 +2668,29 @@ Story and ReasonThe Transformation: After Sati was reborn as Parvati, she perfor
             <p>She is surrounded by a dazzling, cosmic halo that encompasses all colors and dimensions of time (past, present, and future).</p>
 
 
+      <!-- HTML Element with ID -->
+  <h2 id="headingElement">Heading Text</h2>
 
+  <!-- Internal JavaScript -->
+  <script>
+    // Get the element by ID
+    const heading = document.getElementById('headingElement');
 
+    // Add border and background on mouseover
+    heading.addEventListener('mouseover', function() {
+      heading.style.border = '2px solid black';
+      heading.style.display = 'inline-block';
+      heading.style.padding = '10px';
+      heading.style.backgroundColor = 'lightgray';
+    });
 
+    // Remove border and background on mouseout
+    heading.addEventListener('mouseout', function() {
+      heading.style.border = 'none';
+      heading.style.padding = '0px';
+      heading.style.backgroundColor = 'transparent';
+    });
+  </script>
+                
 </body>
 </html>
