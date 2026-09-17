@@ -35,7 +35,88 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                        </div>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </div>
+    
+          
+      
+      
+      
+      
+      
+      </div>
+
+
+
+    <style>
+  /* H2 ला बटणासारखा लुक देण्यासाठी */
+  h2 {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  /* बाण (Arrow) दाखवण्यासाठी */
+  h2::after {
+    content: '\25BC'; 
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+  }
+
+  /* विभाग उघडल्यावर बाण वर करण्यासाठी */
+  h2.active::after {
+    content: '\25B2';
+  }
+
+  /* माहितीचा बॉक्स */
+  .content-box {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: white;
+    border-left: 2px solid #f1f1f1;
+    margin-bottom: 10px;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Array.from मुळे स्टॅटिक लिस्ट तयार होते, ज्यामुळे लूपमध्ये बग येत नाही
+    var heads = Array.from(document.querySelectorAll("h2"));
+
+    heads.forEach(function(head) {
+      var div = document.createElement("div");
+      div.className = "content-box";
+
+      // H2 च्या खालील सर्व माहिती बॉक्समध्ये टाकणे
+      while (head.nextSibling && head.nextSibling.tagName !== "H2") {
+        div.appendChild(head.nextSibling);
+      }
+
+      head.parentNode.insertBefore(div, head.nextSibling);
+
+      // क्लिक झाल्यावर टॉगल करण्याची सोपी पद्धत
+      head.addEventListener("click", function() {
+        this.classList.toggle("active");
+        if (div.style.display === "block") {
+          div.style.display = "none";
+        } else {
+          div.style.display = "block";
+        }
+      });
+    });
+  });
+</script>
+    
 <h1>welcome to the information website of 108 avatar of Devi</h1>
 
   <h2>introduction</h2>
@@ -51,7 +132,7 @@
                     <p>
                         Whether you are a seeker of spiritual knowledge, a student of mythology, or an art enthusiast, this collection serves as an illustrated guide to understanding the vast and diverse heritage of the Goddess’s incarnations.
                           </p>
-         <div class="info-block">
+         
               <h2>List of 108 Names</h2>
 
                   <ul>
@@ -163,7 +244,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                               <li>107. Brahmavadini</li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <li>108. Vishwarupini</li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
 
 
@@ -2670,30 +2751,8 @@ Story and ReasonThe Transformation: After Sati was reborn as Parvati, she perfor
 
 
           
-        <script>
-  // Select all h2 elements on the page
-  const allHeadings = document.querySelectorAll('h2');
+        
 
-  // Loop through each h2 element
-  allHeadings.forEach(function(heading) {
-    
-    // Add border and background on mouseover
-    heading.addEventListener('mouseover', function() {
-      heading.style.border = '2px solid black';
-      heading.style.display = 'inline-block';
-      heading.style.padding = '10px';
-      heading.style.backgroundColor = 'lightgray';
-    });
-
-    // Remove border and background on mouseout
-    heading.addEventListener('mouseout', function() {
-      heading.style.border = 'none';
-      heading.style.padding = '0px';
-      heading.style.backgroundColor = 'transparent';
-    });
-
-  });
-        </script>
                 
 </body>
 </html>
